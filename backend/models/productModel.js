@@ -2,6 +2,8 @@ import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema({
 	name: { type: String, required: true, unique: true },
+	// ref needed for .populate()
+	seller: {type: mongoose.Schema.Types.ObjectID, ref: 'User'},
 	image: { type: String, required: true },
 	brand: { type: String, required: true },
 	category: { type: String, required: true },

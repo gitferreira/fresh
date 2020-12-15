@@ -2,36 +2,45 @@ import express from "express";
 import expressAsyncHandler from "express-async-handler";
 import data from "../data.js";
 import Product from "../models/productModel.js";
-import { isAdmin, isAuth } from "../utils.js";
+import { isAdmin, isAuth, isSellerOrAdmin } from "../utils.js";
 
 const productRouter = express.Router();
 
 productRouter.get("/", expressAsyncHandler(async (req, res) => {
-	const products = await Product.find({});
+
+	//Filter products by individual seller
+
+	const seller = req.query.seller || ""
+	const sellerFilter = seller ? { seller } : {}
+	
+
+	const products = await Product.find({...sellerFilter});
 	res.send(products);
 }));
 
 productRouter.get("/seed",
 	expressAsyncHandler(async (req, res) => {
 
+
 		const createdProducts = Product.insertMany(data.products);
 		res.send({ createdProducts })
-}));
+	}));
 
-productRouter.get("/:id", expressAsyncHandler(async(req, res)=>{
+productRouter.get("/:id", expressAsyncHandler(async (req, res) => {
 	const product = await Product.findById(req.params.id);
-	if(product){
+	if (product) {
 		res.send(product);
 	} else {
-		res.status(404).send({message: "Product Not Found"})
+		res.status(404).send({ message: "Product Not Found" })
 	}
 }))
 
 //Product Creation requires Admin + Auth Middlewares
 
-productRouter.post("/", isAuth, isAdmin, expressAsyncHandler(async(req, res)=>{
+productRouter.post("/", isAuth, isSellerOrAdmin, expressAsyncHandler(async (req, res) => {
 	const product = new Product({
 		name: "example" + Date.now(),
+		seller: req.user._id,
 		image: "/images/p1.jpg",
 		price: 10,
 		category: "example",
@@ -42,13 +51,13 @@ productRouter.post("/", isAuth, isAdmin, expressAsyncHandler(async(req, res)=>{
 		description: "example",
 	})
 	const createdProduct = await product.save()
-	res.send({message: "Product was created", product: createdProduct})
+	res.send({ message: "Product was created", product: createdProduct })
 }))
 
-productRouter.put("/:id", isAuth, isAdmin, expressAsyncHandler(async(req, res)=> {
+productRouter.put("/:id", isAuth, isSellerOrAdmin, expressAsyncHandler(async (req, res) => {
 	const productId = req.params.id;
 	const product = await Product.findById(productId)
-	if(product){
+	if (product) {
 		product.name = req.body.name;
 		product.price = req.body.price;
 		product.image = req.body.image;
@@ -57,7 +66,7 @@ productRouter.put("/:id", isAuth, isAdmin, expressAsyncHandler(async(req, res)=>
 		product.brand = req.body.brand;
 		product.description = req.body.description;
 		const updatedProduct = await product.save()
-		res.send({message: "Product was updated", product: updatedProduct})
+		res.send({ message: "Product was updated", product: updatedProduct })
 	} else {
 		res.status(404).send({
 			message: "Product not found"
@@ -67,9 +76,9 @@ productRouter.put("/:id", isAuth, isAdmin, expressAsyncHandler(async(req, res)=>
 
 //IMPORTANT NOTE: Auth middleware goes BEFORE Admin middleware ---> WHY????
 
-productRouter.delete("/:id", isAuth, isAdmin, expressAsyncHandler(async (req, res)=> {
+productRouter.delete("/:id", isAuth, isAdmin, expressAsyncHandler(async (req, res) => {
 	const product = await Product.findById(req.params.id)
-	if(product){
+	if (product) {
 		const deleteProduct = await product.remove()
 		res.send({
 			message: "Product was deleted",
