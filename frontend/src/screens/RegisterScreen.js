@@ -44,13 +44,13 @@ export default function RegisterScreen(props) {
 		<div>
 			<form className="form" onSubmit={submitHandler}>
 				<div>
-					<h1>Register</h1>
+					<h1 className = "form-title">Register</h1>
 				</div>
 				{loading && <LoadingBox></LoadingBox>}
 				{error && <MessageBox variant = "danger">{error}</MessageBox>}
 				{/* NAME */}
 				<div>
-					<label htmlFor="name">"Name"</label>
+					<label htmlFor="name"><strong> Name </strong></label>
 
 					<input
 						type="text"
@@ -61,7 +61,7 @@ export default function RegisterScreen(props) {
 				</div>
 				{/* EMAIL */}
 				<div>
-					<label htmlFor="email">"Email"</label>
+					<label htmlFor="email"><strong>Email</strong></label>
 
 					<input
 						type="email"
@@ -72,7 +72,7 @@ export default function RegisterScreen(props) {
 				</div>
 				{/* PASSWORD */}
 				<div>
-					<label htmlFor="password">"Password"</label>
+					<label htmlFor="password"><strong> Password </strong></label>
 
 					<input
 						type="password"
@@ -82,7 +82,7 @@ export default function RegisterScreen(props) {
 						onChange={(event) => setPassword(event.target.value)}></input>
 				</div>
 				<div>
-					<label htmlFor="confirmPassword">"Confirm assword"</label>
+					<label htmlFor="confirmPassword"><strong> Confirm your Password</strong> </label>
 
 					<input
 						type="password"
@@ -99,7 +99,9 @@ export default function RegisterScreen(props) {
 					<label />
 					<div>
 						Already have an account? {" "}
+						
 						<Link to={`/signin?redirect=${redirect}`}>Sign In</Link>
+						<p>You can use admin@admin.com & 123 to test all Vendor and Admin features. </p>
 					</div>
 				</div>
 			</form>
