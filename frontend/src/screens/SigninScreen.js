@@ -37,13 +37,13 @@ export default function SigningScreen(props) {
 		<div>
 			<form className="form" onSubmit={submitHandler}>
 				<div>
-					<h1>Sign In</h1>
+					<h1 className = "form-title">Sign In</h1>
 				</div>
 				{loading && <LoadingBox></LoadingBox>}
 				{error && <MessageBox variant = "danger">{error}</MessageBox>}
 				{/* EMAIL */}
 				<div>
-					<label htmlFor="email">"Email"</label>
+					<label htmlFor="email"><strong>Email</strong></label>
 
 					<input
 						type="email"
@@ -54,7 +54,7 @@ export default function SigningScreen(props) {
 				</div>
 				{/* PASSWORD */}
 				<div>
-					<label htmlFor="password">"Password"</label>
+					<label htmlFor="password"><strong>Password</strong></label>
 
 					<input
 						type="password"
@@ -70,10 +70,10 @@ export default function SigningScreen(props) {
 				<div>
 					<label />
 					<div>
-						New Customer? {" "}
+						New to <strong>fresh? </strong> {" "}
 
 						{/* Redirect the User to the natural next step instead of Homepage. */}
-						<Link to={`/register?redirect=${redirect}`}>Create your account</Link>
+						<Link to={`/register?redirect=${redirect}`}> Create an Account!</Link>
 					</div>
 				</div>
 			</form>

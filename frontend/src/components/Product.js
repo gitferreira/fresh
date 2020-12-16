@@ -21,10 +21,17 @@ export default function Product(props) {
 
             <h2 className="product-name">{product.name}</h2>
 
-            <Rating className="product-rating" rating={product.rating} numReviews= {product.numReviews} />
+            <Rating className="product-rating" rating={product.rating} numReviews={product.numReviews} />
             <p className="product-description">{product.description}</p>
             <div className="price-box">
               <h2 className="product-price">{product.price}€</h2>
+            </div>
+            <div>
+              {/* IMPORTANT NOTE**: First seler points to Product model, second seller points to User model.
+                                                              product --> seller(Product) --> seller(User) ---> name */}
+              <Link to={`/seller/${product.seller._id}`}>
+                {product.seller.seller.name}
+              </Link>
             </div>
 
           </div>

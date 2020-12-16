@@ -31,11 +31,11 @@ export default function ShippingAdressScreen(props) {
 			<CheckoutSteps step1 step2></CheckoutSteps>
 			<form className="form" onSubmit={submitHandler}>
 				<div>
-					<h1>Shipping Adress</h1>
+					<h1 className = "form-title">Shipping Adress</h1>
 				</div>
 
 				<div>
-					<label htmlFor="fullName">Address</label>
+					<label htmlFor="fullName"><strong>Address </strong></label>
 					<input
 						type="text"
 						id="fullName"
@@ -48,7 +48,7 @@ export default function ShippingAdressScreen(props) {
 
 
 				<div>
-					<label htmlFor="address">Address</label>
+					<label htmlFor="address"><strong>Address </strong></label>
 					<input
 						type="text"
 						id="address"
@@ -60,7 +60,7 @@ export default function ShippingAdressScreen(props) {
 				</div>
 
 				<div>
-					<label htmlFor="city">City</label>
+					<label htmlFor="city"><strong> City </strong></label>
 					<input
 						type="text"
 						id="city"
@@ -72,7 +72,7 @@ export default function ShippingAdressScreen(props) {
 				</div>
 
 				<div>
-					<label htmlFor="postalCode">Postal Code</label>
+					<label htmlFor="postalCode"><strong>Postal Code </strong></label>
 					<input
 						type="text"
 						id="postalCode"
@@ -84,7 +84,7 @@ export default function ShippingAdressScreen(props) {
 				</div>
 
 				<div>
-					<label htmlFor="country">Country</label>
+					<label htmlFor="country"><strong>Country </strong> </label>
 					<input
 						type="text"
 						id="country"
@@ -96,7 +96,7 @@ export default function ShippingAdressScreen(props) {
 				</div>
 		<div>
 			<label />
-			<button className = "primary" type= "submit">Continue</button>
+			<button className = "primary" type= "submit">CONTINUE</button>
 		</div>
 				
 			</form>

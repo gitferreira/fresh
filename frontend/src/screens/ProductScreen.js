@@ -24,50 +24,70 @@ export default function ProductScreen(props) {
 		props.history.push(`/cart/${productId}?qty=${qty}`);
 	}
 	return (
+
 		<div>
-			{loading ? (<LoadingBox></LoadingBox>)
+			
+			<div>
+			
+
+				{loading ? (<LoadingBox></LoadingBox>)
 				:
 				error ? (<MessageBox variant="danger">{error}</MessageBox>)
 					:
 					(
 						<div>
+							<img className="wave-product" src="https://raw.githubusercontent.com/jlop007/outdoors-website/master/tours/images/wave-large.png" alt="weave" />
+							<div   className = "product-screen">
+							
 							<Link to="/">Back to Results</Link>
 							<div className="row top">
 								<div className="col-2">
 									<img className="large" src={product.image} alt={product.name} />
 								</div>
 								<div className="col-1">
+								<div className="card card-body">
 									<ul>
 										<li>
 											<h1>{product.name} </h1>
 										</li>
 										<li>
 											<Rating
-												rating={product.rating}
-												numReviews={product.numReviews}>
+												rating={product.rating} numReviews={product.numReviews}>
 											</Rating>
 										</li>
+										<br/>
 										<li>
-											Price: {product.price}€
-						</li>
+											<strong> Price: </strong> {product.price}€
+								</li>
+								<br/>
 										<li>
-											Description:
-							<p>{product.description} </p>
-										</li>
+											<strong> Description: </strong>
+								<p>{product.description} </p>
+											</li>
 									</ul>
+									</div>
 								</div>
 								<div className="col-1">
 									<div className="card card-body">
 										<ul>
 											<li>
+												<div className = "flex-row">
+												<h2> Seller:   <Link to={`/seller/${product.seller._id}`}>   {product.seller.seller.name} </Link></h2>
+												</div>
+													
+												
+												<Rating rating={product.seller.seller.rating}
+													numReviews={product.seller.seller.numReviews}> </Rating>
+											</li>
+											<li>
 												<div className="row">
-													<div>Price</div>
+													<div><strong>Price: </strong></div>
 													<div className="price">{product.price}€ </div>
 												</div>
 											</li>
 											<li>
 												<div className="row">
-													<div>Status</div>
+													<div><strong> Status: </strong></div>
 
 													<div> {product.countInStock > 0 ? (<span className="success">In Stock</span>)
 														: (<span className="danger">Not in Stock</span>)}
@@ -80,9 +100,8 @@ export default function ProductScreen(props) {
 													<>
 														<li>
 															<div className="row">
-																<div>Qty</div>
-															</div>
-															<div>
+																<div><strong> Quantity: </strong></div> 
+																<div>
 																<select value={qty} onChange={event => setQty(event.target.value)}>
 																	{
 																		[...Array(product.countInStock).keys()].map(
@@ -93,6 +112,8 @@ export default function ProductScreen(props) {
 																	}
 																</select>
 															</div>
+															</div>
+															
 														</li>
 														<li>
 															<button onClick={addToCartHandler} className="primary block">Add to Cart</button>
@@ -105,9 +126,11 @@ export default function ProductScreen(props) {
 									</div>
 								</div>
 							</div>
+							</div>
 						</div>
 					)
 			}
+			</div>
 		</div>
 
 

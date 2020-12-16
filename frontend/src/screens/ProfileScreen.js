@@ -63,7 +63,7 @@ export default function ProfileScreen() {
 		<div>
 			<form className="form" onSubmit={submitHandler}>
 				<div>
-					<h1>User Profile</h1>
+					<h1 className = "form-title">User Profile</h1>
 				</div>
 				{
 					loading ? <LoadingBox></LoadingBox>
@@ -75,26 +75,26 @@ export default function ProfileScreen() {
 								{errorUpdate && <MessageBox variant="danger">{errorUpdate}</MessageBox>}
 								{successUpdate && <MessageBox variant="success">Your profile was updated</MessageBox>}
 								<div>
-									<label htmlFor="name">Name</label>
+									<label htmlFor="name"><strong>Name </strong></label>
 									<input id="name" type="text" placeholder="Enter name"
 										value={name} onChange={(event) => setName(event.target.value)}></input>
 								</div>
 
 								<div>
-									<label htmlFor="email">Email</label>
+									<label htmlFor="email"><strong>Email</strong></label>
 									<input id="email" type="email" placeholder="Enter email"
 										value={email} onChange={(event) => setEmail(event.target.value)}></input>
 								</div>
 
 								<div>
-									<label htmlFor="password">Password</label>
+									<label htmlFor="password"><strong> Password </strong></label>
 									<input id="password" type="password" placeholder="Enter password"
 										onChange={(event) => setPassword(event.target.value)} ></input>
 								</div>
 
 
 								<div>
-									<label htmlFor="confirmPassword">Confirm Password</label>
+									<label htmlFor="confirmPassword"><strong>Confirm Password</strong></label>
 									<input id="confirmPassword" type="password" placeholder="Confirm your password"
 										onChange={(event) => setConfirmPassword(event.target.value)} ></input>
 								</div>
@@ -103,22 +103,23 @@ export default function ProfileScreen() {
 								{
 									user.isSeller && (
 										<>
-											<h2>Vendor</h2>
+										<br/>
+											<h2 className = "form-title">Vendor Profile</h2>
 
 											<div>
-												<label htmlFor="sellerName">Vendor Name</label>
+												<label htmlFor="sellerName"><strong>Vendor Name</strong>  </label>
 												<input id="sellerName" type="text" placeholder="Enter Vendor Name"
 													value={sellerName} onChange={(event) => setSellerName(event.target.value)}></input>
 											</div>
 
 											<div>
-												<label htmlFor="sellerLogo">Vendor Logo</label>
+												<label htmlFor="sellerLogo"><strong>Logo </strong></label>
 												<input id="sellerLogo" type="text" placeholder="Enter logo"
 													value={sellerLogo} onChange={(event) => setSellerLogo(event.target.value)}></input>
 											</div>
 
 											<div>
-												<label htmlFor="sellerDescription">Vendor Description</label>
+												<label htmlFor="sellerDescription"><strong>Vendor Description</strong></label>
 												<input id="sellerDescription" type="text" placeholder="Enter Vendor Description"
 													value={sellerDescription} onChange={(event) => setSellerDescription(event.target.value)}></input>
 											</div>

@@ -4,7 +4,7 @@ import data from "./data";
 import { cartReducer } from "./reducers/cartReducers";
 import { orderCreateReducer, orderDetailsReducer, orderListReducer, orderListShowReducer, orderPayReducer, orderDeleteReducer, orderDeliverReducer } from './reducers/orderReducers';
 import { productCreateReducer, productDeleteReducer, productDetailsReducer, productListReducers, productUpdateReducer } from "./reducers/productReducers";
-import { userDeleteReducer, userDetailsReducer, userListReducer, userRegisterReducer, userSigninReducer, userUpdateProfileReducer, userUpdateReducer, } from "./reducers/userReducers";
+import { userDeleteReducer, userDetailsReducer, userListReducer, userRegisterReducer, userSigninReducer, userTopSellerListReducer, userUpdateProfileReducer, userUpdateReducer, } from "./reducers/userReducers";
 
 const initialState = {
 
@@ -43,6 +43,7 @@ const reducer = combineReducers({
 	userList: userListReducer,
 	userDelete: userDeleteReducer,
 	userUpdate: userUpdateReducer,
+	userTopSellersList: userTopSellerListReducer	
 })
 
 

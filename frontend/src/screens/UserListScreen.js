@@ -30,7 +30,7 @@ export default function UserListScreen(props) {
   };
   return (
     <div>
-      <h1>Users</h1>
+      <h1 className = "table-title">Registered Users:</h1>
       {loadingDelete && <LoadingBox></LoadingBox>}
       {errorDelete && <MessageBox variant="danger">{errorDelete}</MessageBox>}
       {successDelete && (

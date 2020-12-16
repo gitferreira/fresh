@@ -53,8 +53,8 @@ export default function ProductListScreen(props) {
 	return (
 		<div>
 			<div className="row">
-				<h1>Products</h1>
-				<button type="button" className="primary" onClick={createHandler}>New Product</button>
+				<h1 className = "table-title">PRODUCTS:</h1>
+				<button type="button" className="primary title-btn" onClick={createHandler}>New Product</button>
 			</div>
 
 			{loadingDelete && <LoadingBox></LoadingBox>}

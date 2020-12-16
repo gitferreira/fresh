@@ -49,7 +49,7 @@ export default function UserEditScreen(props) {
     <div>
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1>Edit User {name}</h1>
+          <h1 className = "form-title">Edit {name} Attributes </h1>
           {loadingUpdate && <LoadingBox></LoadingBox>}
           {errorUpdate && (
             <MessageBox variant="danger">{errorUpdate}</MessageBox>
@@ -62,7 +62,7 @@ export default function UserEditScreen(props) {
         ) : (
           <>
             <div>
-              <label htmlFor="name">Name</label>
+              <label htmlFor="name"> <strong>Name </strong></label>
               <input
                 id="name"
                 type="text"
@@ -72,7 +72,7 @@ export default function UserEditScreen(props) {
               ></input>
             </div>
             <div>
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email"><strong> Email </strong> </label>
               <input
                 id="email"
                 type="email"
@@ -82,7 +82,7 @@ export default function UserEditScreen(props) {
               ></input>
             </div>
             <div>
-              <label htmlFor="isSeller">Is Seller</label>
+              <label htmlFor="isSeller"><strong>Is Seller </strong></label>
               <input
                 id="isSeller"
                 type="checkbox"
@@ -91,7 +91,7 @@ export default function UserEditScreen(props) {
               ></input>
             </div>
             <div>
-              <label htmlFor="isAdmin">Is Admin</label>
+              <label htmlFor="isAdmin"><strong>Is Admin </strong></label>
               <input
                 id="isAdmin"
                 type="checkbox"
@@ -101,7 +101,7 @@ export default function UserEditScreen(props) {
             </div>
             <div>
               <button type="submit" className="primary">
-                Update
+                UPDATE USER
               </button>
             </div>
           </>
