@@ -11,6 +11,7 @@ export default function UserEditScreen(props) {
   const userId = props.match.params.id;
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  
   const [isSeller, setIsSeller] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
 
@@ -43,13 +44,19 @@ export default function UserEditScreen(props) {
   const submitHandler = (e) => {
     e.preventDefault();
     // dispatch update user
-    dispatch(updateUser({ _id: userId, name, email, isSeller, isAdmin }));
+    dispatch(updateUser({
+      _id: userId,
+      name,
+      email,
+      isSeller,
+      isAdmin
+    }));
   };
   return (
     <div>
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1 className = "form-title">Edit {name} Attributes </h1>
+          <h1 className="form-title">Edit {name} Attributes </h1>
           {loadingUpdate && <LoadingBox></LoadingBox>}
           {errorUpdate && (
             <MessageBox variant="danger">{errorUpdate}</MessageBox>
@@ -60,54 +67,53 @@ export default function UserEditScreen(props) {
         ) : error ? (
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
-          <>
-            <div>
-              <label htmlFor="name"> <strong>Name </strong></label>
-              <input
-                id="name"
-                type="text"
-                placeholder="Enter name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="email"><strong> Email </strong> </label>
-              <input
-                id="email"
-                type="email"
-                placeholder="Enter email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="isSeller"><strong>Is Seller </strong></label>
-              <input
-                id="isSeller"
-                type="checkbox"
-                checked={isSeller}
-                onChange={(e) => setIsSeller(e.target.checked)}
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="isAdmin"><strong>Is Admin </strong></label>
-              <input
-                id="isAdmin"
-                type="checkbox"
-                checked={isAdmin}
-                onChange={(e) => setIsAdmin(e.target.checked)}
-              ></input>
-            </div>
-            <div>
-              <button type="submit" className="primary">
-                UPDATE USER
+              <>
+                <div>
+                  <label htmlFor="name"> <strong>Name </strong></label>
+                  <input
+                    id="name"
+                    type="text"
+                    placeholder="Enter name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  ></input>
+                </div>
+                <div>
+                  <label htmlFor="email"><strong> Email </strong> </label>
+                  <input
+                    id="email"
+                    type="email"
+                    placeholder="Enter email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  ></input>
+                </div>
+                <div>
+                  <label htmlFor="isSeller"><strong>Is Seller </strong></label>
+                  <input
+                    id="isSeller"
+                    type="checkbox"
+                    checked={isSeller}
+                    onChange={(event) => setIsSeller(event.target.checked)}
+                  ></input>
+                </div>
+                <div>
+                  <label htmlFor="isAdmin"><strong>Is Admin </strong></label>
+                  <input
+                    id="isAdmin"
+                    type="checkbox"
+                    checked={isAdmin}
+                    onChange={(e) => setIsAdmin(e.target.checked)}
+                  ></input>
+                </div>
+                <div>
+                  <button type="submit" className="primary">
+                    UPDATE USER
               </button>
-            </div>
-          </>
-        )}
+                </div>
+              </>
+            )}
       </form>
     </div>
   );
 }
- 

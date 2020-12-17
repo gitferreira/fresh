@@ -150,10 +150,10 @@ function App() {
           
 
         </main>
-        <footer className="row center">
-          All rights reserved
+        {/* <footer className="row center">
+          An Ironhack Project.
           
-		</footer>
+		</footer> */}
       </div>
     </BrowserRouter >
   );

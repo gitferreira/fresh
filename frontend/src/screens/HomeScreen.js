@@ -69,7 +69,7 @@ export default function HomeScreen() {
         <div className="circle1"> </div>
         <div className="imgBox">
 
-          <img className="logo" src="https://lh3.googleusercontent.com/proxy/mvyJpNyPpCVWROj9v_Rtq2pmwx6hNxdJf5hfASlZMG903Zy3DEDDHPLMlj7kpZAVGlUKrW-s6URAqCOI1fGK3JPTFKSMwMbJYVigbSboW9fVugf8Qg-azvxYXcGgmwcc88COccEn2YYrlomduakRpLwVg3vm7lYDWcmL7w" alt="image" ></img>
+          <img className="logo" src="https://lh3.googleusercontent.com/proxy/tU1guwxZris4AdrKYEcpO6-NZ9j-8XgHgpwprR2YyncxA1oiPHhpnJBkaO6_N063csKjI43shIKWGzDmaPKe-kIK58v4iAT0T9-Mu3rSMlNyH3GH1evW22wfuH8Lgrlj5t2zrA" alt="image" ></img>
 
         </div>
 

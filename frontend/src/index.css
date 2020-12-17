@@ -104,7 +104,7 @@ textarea,
 button{
 	padding: 1rem;
 	border-radius: 0.5rem;
-	border: 0.1rem #a4a4a4 solid;
+	border: 0.1rem #1c7440 solid;
 	font-family:  Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -122,6 +122,11 @@ select:hover,
 textarea:hover,
 button:hover {
 	border: 0.1rem  #017143 solid;
+	background: #fff;
+	color: #017143;
+	border: #017143 0.1rem solid;
+	transition: all 0.4s ease-out;
+
 }
 
 button.primary{
@@ -246,9 +251,9 @@ img.medium {
   height: 40rem;
 }
 
-img.large {
-	width: 100%;
-	max-width: 600px;
+.img {
+	width: 60%;
+	max-width: 400px;
 }
 /*Card*/
 
@@ -257,7 +262,7 @@ img.large {
 	background-color: rgb(197, 223, 184);
 	border-radius: 0.5rem;
 	border:rgb(106, 153, 78) 2px solid;
-	margin: 1rem;
+	margin: 1rem 1rem 0 1rem;
 	box-shadow: 0 5px 20px rgba(0,0,0,0.2); 
 }
 
@@ -743,6 +748,7 @@ strong {
 	letter-spacing: 0.1rem;
 	text-decoration: none;
 	border: #017143 0.1rem solid;
+	transition: all 0.6s ease-out;
 
 }
 
@@ -923,7 +929,7 @@ strong {
 	  max-width: 100%;
 	  z-index:1 ;
 	  margin-top: 24.5rem;
-	  height: 80rem;
+	  height: 100rem;
 	  padding-left: 8rem;
 	  padding-right: 8rem;
   }
@@ -938,3 +944,23 @@ strong {
 
 }
 
+.review-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.review-box {
+	width: 84.5rem;
+	
+}
+
+.box {
+	width: 40rem;
+	height: 25rem;
+}
+
+.reviews {
+	margin-top: 5rem;
+	max-width: 20rem;
+
+}
