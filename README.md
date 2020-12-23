@@ -33,7 +33,7 @@ $ npm start
 
 ### FRONTEND Installation 🔧
 
-Install all dependencies described in package.json in the /fresh-v3/frontend folder:
+Install all dependencies described in package.json in the /fresh/frontend folder:
 
 ```
 $ npm install
