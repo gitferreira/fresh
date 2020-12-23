@@ -6,7 +6,7 @@ Marketplace Web-app. Order the best of seasonal farm fresh food, great local fin
 
 MERN application, built with React & Redux MongoDB, Express and Node.
 
-![fresh-home]("http://url/to/https://live.staticflickr.com/65535/50747057598_d41aa4e5e6_h.jpg")
+![fresh-home](fresh.JPG)
 
 ## Start the app 🚀
 
