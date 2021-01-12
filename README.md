@@ -3,6 +3,7 @@
 ### Description 🍍 
 
 Marketplace Web-app. Order the best of seasonal farm fresh food, great local finds, quick meal solutions, incredible new products and exclusives, and all of your favorite grocery brands. It's supermarket delivery with so much more!
+Allows Sellers to post their products and Buyers to go through the complete Checkout process ending up with paying via PayPal. 
 
 MERN application, built with React & Redux MongoDB, Express and Node.
 
